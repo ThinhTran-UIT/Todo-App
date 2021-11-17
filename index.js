@@ -1,8 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+
+const authRouter = require('./routes/auth')
+const postRouter = require('./routes/post')
 const connectDB = async() => {
     try {
-        await mongoose.connect('mongodb+srv://todoapp:thinh123@todo-app.8nkkn.mongodb.net/todo-app?retryWrites=true&w=majority', {
+        await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@todo-app.8nkkn.mongodb.net/todo-app?retryWrites=true&w=majority`, {
             //useCreateIndex: true,
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -17,8 +21,11 @@ const connectDB = async() => {
 
 connectDB()
 const app = express();
+app.use(express.json())
 
-app.get('/',(req,res) => res.send('Hello world'))
+app.use('/api/auth', authRouter )
+app.use('/api/posts', postRouter )
 
 const PORT = 5000;
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
