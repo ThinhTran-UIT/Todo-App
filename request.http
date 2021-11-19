@@ -7,6 +7,15 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "ST",
+    "password": "1304440183"
+}
+
+###
 
 POST http://localhost:5000/api/auth/login
 Content-Type: application/json
@@ -17,12 +26,47 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/api/posts
+POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "title": "Test",
+    "username": "ST",
+    "password": "1304440183"
+}
+
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk3NWRjODQ2OWNmZTU5OWZkMzk1ZTgiLCJpYXQiOjE2MzczMDk5MDJ9.vsy8fxGXrIUzrmR6zIxUXA5ns6YlRjzZyQFuYV378xE
+
+{
+    "title": "Reactjs",
     "description": "abcd",
     "url": "google.com",
     "status": "LEARNING"
 }
+
+###
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk1MjJhM2ZmYjQ5MGRjODQzOWMxYmUiLCJpYXQiOjE2MzczMTExODV9.6joxIm1i6rxcbCFobqXID-5yHh8arZCSUVUB8Qe-fqQ
+
+
+###
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk3NWRjODQ2OWNmZTU5OWZkMzk1ZTgiLCJpYXQiOjE2MzczMTU5MTZ9.--eXt1pyxEHSN6-nqt12y9zrBBaFYcB9hId606xIrBw
+
+###
+PUT http://localhost:5000/api/posts/61975bda771d251585352b7c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk3NWRjODQ2OWNmZTU5OWZkMzk1ZTgiLCJpYXQiOjE2MzczMTU4MzF9.NaSm8-HTOS1rqIdqUhP0ULhoF6LJaz4_PtzraFz7J8U
+
+{
+    "title": "Reactjs Update",
+    "description": "reactjs desc",
+    "url": "youtube.com",
+    "status": "LEARNED"
+}
+
+###
+DELETE  http://localhost:5000/api/posts/61975de3469cfe599fd395eb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTk3NWRjODQ2OWNmZTU5OWZkMzk1ZTgiLCJpYXQiOjE2MzczMTU5MTZ9.--eXt1pyxEHSN6-nqt12y9zrBBaFYcB9hId606xIrBw
